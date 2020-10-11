@@ -1,0 +1,77 @@
+<br>
+
+<div>
+ <button mat-icon-button color="primary" routerLink="/solicitudes/add" >
+    <mat-icon>control_point</mat-icon>Agregar
+  </button>
+</div>
+
+<div>
+<mat-form-field >
+  <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar">
+</mat-form-field>
+</div>
+
+<div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="Usuario">
+        <th mat-header-cell *matHeaderCellDef> Empleado </th>
+        <td mat-cell *matCellDef="let element"> {{element.user}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="Fecha solicitud">
+      <th mat-header-cell *matHeaderCellDef> Fecha solicitud </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha_solicitud | slice:0:10}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Inicio vacaciones">
+      <th mat-header-cell *matHeaderCellDef> Inicio vacaciones </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha_inicio_vacaciones | slice:0:10}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Fin vacaciones">
+      <th mat-header-cell *matHeaderCellDef> Fin vacaciones </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha_fin_vacaciones | slice:0:10}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Edit">
+      <th mat-header-cell *matHeaderCellDef> Editar </th>
+      <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button [routerLink]="['/solicitudes/edit',element.id]">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Aceptar">
+      <th mat-header-cell *matHeaderCellDef> Aceptar </th>
+      <td mat-cell *matCellDef="let element">
+        <button  mat-icon-button (click)="AceptarSolicitud(element.id)">
+          <mat-icon>check</mat-icon>
+    </button> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Cancelar">
+      <th mat-header-cell *matHeaderCellDef> Cancelar </th>
+      <td mat-cell *matCellDef="let element">
+        <button  mat-icon-button (click)="Cancelar(element.id)">
+          <mat-icon>close</mat-icon>
+    </button> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+<mat-paginator [pageSize]="10"></mat-paginator>
+</div>
+
+<!--
+
+   <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+-->

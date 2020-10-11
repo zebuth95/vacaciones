@@ -1,0 +1,76 @@
+<div class="login-page">
+  <mat-card class="example-card">
+
+    <mat-card-content>
+
+    <form>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Ingresa el código del usuario</mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="user"
+          class="form-control" name="user" [(ngModel)]="solicitud.user"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input
+        class="form-control"
+        matInput [matDatepicker]="picker1"
+        name="fecha_inicio_vacaciones"
+        placeholder="Fecha de inicio"
+        dateFormat="yyyy-MM-dd"
+        locale="es-CO"
+        [min]="minDate"
+        [(ngModel)]="solicitud.fecha_inicio_vacaciones"
+        >
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input
+        class="form-control"
+        matInput [matDatepicker]="picker2"
+        name="fecha_fin_vacaciones"
+        placeholder="Fecha finalización"
+        dateFormat="yyyy-MM-dd"
+        locale="es-CO"
+        [min]="minDate"
+        [(ngModel)]="solicitud.fecha_fin_vacaciones"
+        >
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Numero de periodos</mat-label>
+          <input
+          type="number"
+          required
+          matInput
+          placeholder="periodos"
+          class="form-control" name="periodos" [(ngModel)]="solicitud.periodos"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Anexo</mat-label>
+          <textarea
+          matInput
+          placeholder="Descripción"
+          class="form-control" name="anexo" [(ngModel)]="solicitud.anexo"
+          ></textarea>
+      </mat-form-field>
+
+      <button mat-flat-button color="primary" type="submit" (click)="edit ? updateData() : postData()">Ingresar</button>
+    </form>
+
+    <p *ngIf="submit" style="color: green;">Datos ingresados</p>
+    <p *ngIf="error" style="color: red;">Datos no ingresados</p>
+    </mat-card-content>
+  </mat-card>
+</div>

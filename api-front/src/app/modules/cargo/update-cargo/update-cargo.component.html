@@ -1,0 +1,52 @@
+<div class="login-page">
+  <mat-card class="example-card">
+
+    <mat-card-content>
+
+    <form>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Nombre </mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="Nombre"
+          class="form-control" name="nombre" [(ngModel)]="cargo.nombre"
+          >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label> Horario </mat-label>
+        <mat-select matNativeControl  [(ngModel)]="this.cargo.horario" name="horario">
+          <mat-option *ngFor="let horario of horarios" [value]="horario.value">
+            {{horario.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Días de empalme </mat-label>
+          <input
+          type="number"
+          required
+          matInput
+          placeholder="Empalme"
+          class="form-control" name="empalme" [(ngModel)]="cargo.empalme"
+          >
+      </mat-form-field>
+
+      <div class="">
+        <p *ngIf="submit" style="color: green;">Datos ingresados</p>
+      </div>
+
+      <button mat-flat-button color="primary" type="submit" (click)="updateData()">Ingresar</button>
+    </form>
+
+    <br>
+
+    <br>
+
+    </mat-card-content>
+  </mat-card>
+</div>

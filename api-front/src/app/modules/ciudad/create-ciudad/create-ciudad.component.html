@@ -1,0 +1,32 @@
+<div class="login-page">
+  <mat-card class="example-card">
+
+    <mat-card-content>
+
+    <form>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Nombre </mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="Nombre"
+          class="form-control" name="nombre" [(ngModel)]="ciudad.nombre"
+          >
+      </mat-form-field>
+
+      <div class="">
+        <p *ngIf="submit" style="color: green;">Datos ingresados</p>
+      </div>
+
+      <button mat-flat-button color="primary" type="submit" (click)="postData()">Ingresar</button>
+    </form>
+
+    <br>
+
+    <br>
+
+    </mat-card-content>
+  </mat-card>
+</div>

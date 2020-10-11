@@ -1,0 +1,44 @@
+<mat-nav-list>
+    <div class="profile-card">
+
+        <div class="header">
+        <img src="https://pbs.twimg.com/profile_images/1146895553869033472/5ODK5cHh_400x400.png" alt="Soufiane FADIL">
+        </div>
+        <h3>Bienvenido</h3>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <!-- This is the tree node template for leaf nodes -->
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+        <!-- use a disabled button to provide padding for tree leaf -->
+        <button mat-icon-button disabled></button>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="{{node.path}}" routerLinkActive="active-list-item">{{node.name}}</a>
+    </mat-tree-node>
+    <!-- This is the tree node template for expandable nodes -->
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'toggle ' + node.name">
+        <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+        </button>
+        {{node.name}}
+    </mat-tree-node>
+    </mat-tree>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Otros</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts" routerLinkActive="active-list-item">
+        <mat-icon>import_contacts</mat-icon>
+        Contactos
+    </a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts" routerLinkActive="active-list-item">
+        <mat-icon>contact_phone</mat-icon>
+        Organizadores
+    </a>
+</mat-nav-list>

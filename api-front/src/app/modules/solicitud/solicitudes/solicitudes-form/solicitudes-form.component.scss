@@ -1,0 +1,62 @@
+.login-page {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+mat-card {
+    width: 100%;
+    margin: auto;
+    border-radius: 12px;
+}
+
+mat-form-field,
+mat-checkbox {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+mat-card-content {
+    margin-top: 20px;
+}
+
+.login-button {
+    margin-top: 20px;
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.example-card {
+    max-width: 900px;
+    background-color: white;
+    color: blue;
+}
+
+.example-header-image {
+    background-image: url('https://pbs.twimg.com/profile_images/1146895553869033472/5ODK5cHh_400x400.png');
+    background-size: cover;
+}
+
+.example-container .mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+.example-right-align {
+    text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+
+input.example-right-align {
+    -moz-appearance: textfield;
+}

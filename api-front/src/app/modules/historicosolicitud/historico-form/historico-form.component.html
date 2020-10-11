@@ -1,0 +1,87 @@
+<div class="login-page">
+  <mat-card class="example-card">
+
+    <mat-card-content>
+
+    <form>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Empleado </mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="solicitud"
+          class="form-control" name="solicitud" [(ngModel)]="historico.solicitud"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Supernumerario </mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="supernumerario"
+          class="form-control" name="supernumerario" [(ngModel)]="historico.supernumerario"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Oficina </mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="oficina"
+          class="form-control" name="oficina" [(ngModel)]="historico.oficina"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Cargo </mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="cargo"
+          class="form-control" name="cargo" [(ngModel)]="historico.cargo"
+          >
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <input
+        class="form-control"
+        matInput [matDatepicker]="picker1"
+        name="empalme_inicial"
+        placeholder="Inicio empalme"
+        dateFormat="yyyy-MM-dd"
+        locale="es-CO"
+        [(ngModel)]="historico.sup_inicio_vacaciones"
+        >
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input
+        class="form-control"
+        matInput [matDatepicker]="picker2"
+        name="empalme_final"
+        placeholder="Fin empalme"
+        dateFormat="yyyy-MM-dd"
+        locale="es-CO"
+        [(ngModel)]="historico.sup_fin_vacaciones"
+        >
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+
+      <button mat-flat-button color="primary" type="submit" (click)="edit ? updateData() : postData()">Ingresar</button>
+    </form>
+
+    <p *ngIf="submit" style="color: green;">Datos ingresados</p>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,108 @@
+<div class="login-page">
+  <mat-card class="example-card">
+
+    <mat-card-content>
+
+    <form>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Código SAP</mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="username"
+          class="form-control" name="username" [(ngModel)]="empleado.username"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Nombres </mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="Nombre"
+          class="form-control" name="first_name" [(ngModel)]="empleado.first_name"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Apellidos </mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="Apellido"
+          class="form-control" name="last_name" [(ngModel)]="empleado.last_name"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Email </mat-label>
+          <input
+          type="email"
+          required
+          matInput
+          placeholder="Ex. pat@ejemplo.com"
+          class="form-control" name="email" [(ngModel)]="empleado.email"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input
+        class="form-control"
+        matInput [matDatepicker]="picker"
+        name="fecha_ingreso"
+        placeholder="Fecha de ingreso"
+        dateFormat="yyyy-MM-dd"
+        locale="es-CO"
+        [(ngModel)]="this.DataEmpleado.empleados.fecha_ingreso"
+        >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Periodos causados </mat-label>
+          <input
+          type="number"
+          matInput
+          placeholder="Periodos causados"
+          class="form-control" name="periodos"
+          [(ngModel)]="this.DataEmpleado.empleados.periodos_causados"
+          >
+      </mat-form-field>
+
+      <p>{{"Oficina actual: "+this.DataOficina.nombre}}</p>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Oficina</mat-label>
+        <mat-select matNativeControl  [(ngModel)]="this.selectedOficina" name="oficina">
+          <mat-option *ngFor="let oficina of oficinas" [value]="oficina">{{oficina.nombre}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <p>{{"Cargo actual: "+this.DataCargo.nombre}}</p>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Cargo</mat-label>
+        <mat-select matNativeControl [(value)]="this.selectedCargo" [(ngModel)]="this.selectedCargo" name="cargo">
+          <mat-option *ngFor="let cargo of cargos" [value]="cargo">{{cargo.nombre}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="">
+        <p *ngIf="submit" style="color: green;">Datos ingresados</p>
+      </div>
+
+      <button mat-flat-button color="primary" type="submit" (click)="updateData()">Ingresar</button>
+    </form>
+
+    <br>
+
+    <br>
+
+    </mat-card-content>
+  </mat-card>
+</div>

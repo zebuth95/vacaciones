@@ -1,0 +1,24 @@
+:host {
+    .mat-icon {
+        vertical-align: middle;
+        margin-right: 20px;
+    }
+    .profile-card {
+        text-align: center;
+        padding: 0 20px 20px 20px;
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+}
+
+ul li {
+    list-style: none;
+}
+
+.active-list-item {
+  color: #3F51B5 !important; /* Note: You could also use a custom theme */
+}

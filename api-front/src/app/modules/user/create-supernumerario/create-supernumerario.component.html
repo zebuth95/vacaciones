@@ -1,0 +1,89 @@
+<div class="login-page">
+  <mat-card class="example-card">
+
+    <mat-card-content>
+
+    <form>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Código SAP</mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="username"
+          class="form-control" name="username" [(ngModel)]="supernumerario.username"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Contraseña </mat-label>
+          <input
+          type="password"
+          required
+          minlength="6"
+          matInput
+          placeholder="passwordpassword"
+          class="form-control" name="password" [(ngModel)]="supernumerario.password"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Nombres </mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="Nombre"
+          class="form-control" name="first_name" [(ngModel)]="supernumerario.first_name"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Apellidos </mat-label>
+          <input
+          type="text"
+          required
+          matInput
+          placeholder="Apellido"
+          class="form-control" name="last_name" [(ngModel)]="supernumerario.last_name"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Email </mat-label>
+          <input
+          type="email"
+          required
+          matInput
+          placeholder="Ex. pat@ejemplo.com"
+          class="form-control" name="email" [(ngModel)]="supernumerario.email"
+          >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Ciudad</mat-label>
+        <mat-select matNativeControl  [(ngModel)]="this.selectedCiudad" name="ciudad">
+          <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">{{ciudad.nombre}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Cargo</mat-label>
+        <mat-select matNativeControl  [(ngModel)]="this.selectedCargo" name="cargo" multiple>
+          <mat-option *ngFor="let cargo of cargos" [value]="cargo.id">{{cargo.nombre}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="">
+        <p *ngIf="submit" style="color: green;">Datos ingresados</p>
+      </div>
+
+      <button mat-flat-button color="primary" type="submit" (click)="postData()">Ingresar</button>
+    </form>
+
+    <br>
+
+    </mat-card-content>
+  </mat-card>
+</div>
